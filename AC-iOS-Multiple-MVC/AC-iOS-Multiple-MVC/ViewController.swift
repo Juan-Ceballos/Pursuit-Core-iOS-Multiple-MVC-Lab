@@ -10,6 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
+    
+    var animalSections = [[ZooAnimal]]()  {
+        didSet  {
+            tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +27,12 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+}
 
-
+extension ViewController: UITableViewDataSource   {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return animalSections.count
+    }
+    
 }
 
