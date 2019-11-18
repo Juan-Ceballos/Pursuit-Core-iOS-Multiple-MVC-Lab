@@ -58,6 +58,11 @@
                                                 <constraint firstItem="Tq1-An-hkP" firstAttribute="leading" secondItem="YNq-cK-hHa" secondAttribute="trailing" constant="8" id="zQC-kO-cqV"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="animalImage" destination="YNq-cK-hHa" id="oSC-f0-650"/>
+                                            <outlet property="animalNameLabel" destination="1G9-9N-5Rr" id="trj-c9-9Xc"/>
+                                            <outlet property="animalRegionLabel" destination="Tq1-An-hkP" id="05A-Lc-h0y"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -71,6 +76,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="TDX-Iz-PAa" id="bTi-1d-Wqn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
