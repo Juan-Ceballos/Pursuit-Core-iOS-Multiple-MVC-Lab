@@ -130,21 +130,30 @@ Zebras were the second species to diverge from the earliest proto-horses, after 
     
     static func getZooAnimals() -> [[ZooAnimal]] {
         let sortedAnimals = zooAnimals.sorted {$0.classification < $1.classification}
+        //2. use a set to identify unique classification
+        // will go through every value and return the classification string array and cast it to a set of strings
         let animalTitles: Set<String> = Set(zooAnimals.map { $0.classification })
+        
+        //3. we will create an empty array of [ZooAnimal], for each classification
         var sectionsArr = Array(repeating: [ZooAnimal](), count: animalTitles.count)
-        // created 5 empty arrays of type [Country]
+        // created 5 empty arrays of type [ZooAnimal]
         // [[],[],[],[],[]]
         
         // iterate through our countries array and add to the relevant section
-        var currentIndex = 0
-        var currentAnimal = sortedAnimals.first?.classification ?? "Pursuit" // e.g Asia
+        //4. create initial starting index for the sections
+        var currentIndex = 0 // first array to put zoo animals in, see a different classification go to next array
+        
+        //5. get current classification name
+        var currentAnimal = sortedAnimals.first?.classification ?? "Pursuit" // e.g Amphibian
+        
+        //6. loop over sortedAnimals and place appropriate section
         for animal in sortedAnimals {
             if animal.classification == currentAnimal {
             // add to current section
             sectionsArr[currentIndex].append(animal)
-          } else { // visiting a new continent
+          } else { // goint to next zooanimal classification    
             currentIndex += 1
-            currentAnimal = animal.classification // updating the current continent's value
+            currentAnimal = animal.classification // updating the current classification
             sectionsArr[currentIndex].append(animal)
           }
         }
